@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       username: 'dstadz',
       gitUser: {},
-      followers: [] ,
+      followers: [],
       inputValue: ''
     }
   }
@@ -20,6 +20,7 @@ class App extends React.Component {
   getGit = () => {
     axios.get(`https://api.github.com/users/${this.state.username}`)
       .then((res) => {
+        console.log(res)
         this.setState({
           gitUser: res.data
         })
@@ -37,7 +38,6 @@ class App extends React.Component {
     render() {
       return (
         <div>
-
           <Card {...this.state.gitUser} />
           <List followers={this.state.followers} />
         </div>
