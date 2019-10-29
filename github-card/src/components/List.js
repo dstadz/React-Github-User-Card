@@ -3,6 +3,8 @@ import React from 'react'
 
 class List extends React.Component {
     render() {
+        {console.log(this.props)}
+        {console.log(this.props.followers)}
         return (
             <List>
                 <h2>Followers</h2>
@@ -11,7 +13,8 @@ class List extends React.Component {
                     <img src={follower.avatar_url} />
                     {follower.login}
                 </div>
-                })}
+                })
+                }
             </List>
         );
     }
