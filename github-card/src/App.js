@@ -1,6 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 import './App.css';
-import CardList from './components/CardList'
+import List from './components/List'
 import Card from './components/Card'
 
 
@@ -26,15 +27,22 @@ class App extends React.Component {
       .catch((err) => {
         console.log(err)
       })
+    }
+
+    componentDidMount() {
+      this.getGit();
+    }
   
 
-  render() {
-    return (
-      <div className="App">
-         <CardList cards={this.state.cards}/> 
-      </div>
-    );
-  }
-}
+    render() {
+      return (
+        <div>
 
-export default App;
+          <Card {...this.state.gitUser} />
+          <List followers={this.state.followers} />
+        </div>
+      )
+    }
+  }
+  
+  export default App;
